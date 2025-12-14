@@ -24,6 +24,8 @@ jobs:
           submodules: true
           fetch-depth: 0 # Fetch all history for git info
           token: ${{ secrets.SUBMODULE_TOKEN }}
+      - name: Update submodules to latest (tracked branch)
+        run: git submodule update --init --recursive --remote
       - uses: actions/setup-node@v4
         with:
           node-version: 22
